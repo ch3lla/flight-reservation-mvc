@@ -15,7 +15,7 @@ public class MapService {
     private final WebClient webClient;
     private final ObjectMapper objectMapper;
     private final String API_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json";
-    private final String API_KEY = "AIzaSyDvcluySCLuXyKovkbT2HkuhAPD6t6DOH4";
+    private final String API_KEY = "YOUR_API_KEY";
     public MapService(WebClient.Builder webClientBuilder, ObjectMapper objectMapper) {
         this.webClient = webClientBuilder.baseUrl(API_URL).build();
         this.objectMapper = objectMapper;
