@@ -24,6 +24,11 @@ public class HomeController {
 
     @GetMapping("/")
     public String greeting() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.isAuthenticated() && 
+            !(authentication instanceof AnonymousAuthenticationToken)) {
+            return "redirect:/flights";
+        }
         return "redirect:/register";
     }
 

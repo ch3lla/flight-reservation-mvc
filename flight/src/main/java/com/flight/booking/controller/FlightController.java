@@ -26,7 +26,12 @@ public class FlightController {
 
     @GetMapping("/flights/book-flight")
     public String getBookFlight(@RequestParam Integer id, Model model) throws JsonProcessingException {
-        model.addAttribute("ticket", flightService.getFlightById(id));
+        try {
+            System.out.println("here");
+            model.addAttribute("ticket", flightService.getFlightById(id));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         model.addAttribute("codes",  conversionService.getCodes());
         return "bookFlight";
     }
